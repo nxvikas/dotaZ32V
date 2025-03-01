@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+button{
+    background-color: lightcyan;
+    border-radius: 10px;
+    border-color: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
