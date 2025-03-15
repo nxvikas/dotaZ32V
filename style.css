@@ -1,14 +1,92 @@
-.container{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.up {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.res {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+.down {
+    display: flex;
+    flex-direction: column;
+}
+
+.numb {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.operation {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+button {
+    padding: 15px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #d4d4d4;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.n {
+    background-color: #f9f9f9; /* Цвет кнопок с числами */
+}
+
+.pow, .plus, .minus, .division, .multy, .sqrt, .drob, .ravno {
+    background-color: #ff9800; /* Цвет кнопок операций */
+    color: white; /* Цвет текста на кнопках операций */
+}
+
+.pow:hover, .plus:hover, .minus:hover, .division:hover, .multy:hover, .sqrt:hover, .drob:hover, .ravno:hover {
+    background-color: #e07d03; /* Более темный цвет при наведении */
 }
 button{
     background-color: lightcyan;
     border-radius: 10px;
     border-color: none;
-    width: 30px;
-    height: 30px;
+    /* width: 30px;
+    height: 30px; */
     cursor: pointer;
 }
