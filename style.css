@@ -4,6 +4,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 30px;
     height: 100vh;
     margin: 0;
 }
@@ -63,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #d4d4d4;
+    background-color: rgb(181, 197, 197);
 }
 
 button:active {
@@ -71,7 +73,10 @@ button:active {
 }
 
 .n {
-    background-color: #f9f9f9; /* Цвет кнопок с числами */
+    background-color: #ececec; /* Цвет кнопок с числами */
+}
+.n:hover{
+    background-color: #d6d6d6;
 }
 
 .pow, .plus, .minus, .division, .multy, .sqrt, .drob, .ravno {
@@ -83,10 +88,14 @@ button:active {
     background-color: #e07d03; /* Более темный цвет при наведении */
 }
 button{
-    background-color: lightcyan;
+    background-color: rgb(202, 221, 221);
     border-radius: 10px;
     border-color: none;
     /* width: 30px;
     height: 30px; */
     cursor: pointer;
+}
+.btn-unit{
+    text-decoration: none;
+    color: rgb(133, 9, 9);
 }
