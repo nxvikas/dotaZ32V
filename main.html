@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="operation">
+            <button class="pow">^</button>
+            <button class="plus">+</button>
+            <button class="minus">-</button>
+            <button class="division">/</button>
+            <button class="multy">*</button>
+            <button class="sqrt">√</button>
+            <button class="drob">1/x</button>
+            <button class="ravno">=</button>
+        </div>
+    </div>
+    <button class="btn-unit"><a href="./index.html" class="btn-unit">Назад</a></button>
+    <div id="mocha"></div>
+    <script>
+        mocha.setup('bdd');
+        let assert = chai.assert;
+        function pow(x, n) {
+            let result = 1;
+            for (let i = 0; i < n; i++) {
+                result *= x;
+            }
+            return result;
+        };
+        function plus(x, n) {
+            let result = 0;
+            result = x + n;
+            return result;
+        };
+        function minus(x, n) {
+            let result = 0;
+            result = x - n;
+            return result;
+        };
+        function division(x, n) {
+            let result = 0;
+            result = x / n;
+            return result;
+        };
+        function multiply(x, n) {
+            return x * n;
+        };
+        function sqrt(x) {
+            return Math.sqrt(x);
+        };
+        function drob(x) {
+            return (1 / x);
+        };
+        // Очистка предыдущих тестов перед каждым запуском
+        function clearTests() {
+            mocha.suite.suites = [];
+            document.getElementById('mocha').innerHTML = '';
+        }
+        function definePowTests() {
+            describe("pow", function () {
+                it("2 в степени 3 будет 8", function () {
+                    let res = pow(2, 3);
+                    assert.equal(pow(2, 3), 8);
+                    assert.isOk(res == 5, "Результат не истинный");
+                });
+
+                it("3 в степени 3 будет 27", function () {
+                    let res = pow(3, 3);
+                    assert.equal(pow(3, 3), 27);
+                });
+
+                it("4 во 2 степени будет 18", function () {
+                    // assert.equal(pow(4, 2), 18);
+                    assert.notEqual(pow(4, 2), 16, "Результат не должен быть равен 18");
+                });
+
+                it("6 в степени 10 будет 6046888", function () {
+                    assert.strictEqual(6, '10', "Разные типы данных!");
+                    // assert.equal(pow(6, 10), 6046888);
+                });
+            });
+        }
+        function definePlusTests() {
+            describe("plus", function () {
+                it("2 + 3 будет 5", function () {
+                    assert.notStrictEqual(2, '3',);
+                    // assert.equal(plus(2, 3), 5);
+                });
+                it("4 + 98 будет null", function () {
+                    let res = plus(4, 98);
+                    assert.isNull(res, "Значение не null!");
+                    // assert.equal(plus(4, 98), 100);
+                });
+                it("5 + 5 будет null", function () {
+                    let res = plus(5, 5);
+                    assert.isNotNull(null, `Значение ${res} не null!`);
+                    // assert.equal(plus(5, 5), 10);
+                });
+                it("1 + 21 будет 23", function () {
+                    let res = plus(1, 21);
+                    assert.isNotOk(res == 22, "Результат неверен");
+                    // assert.equal(plus(1, 21), 23);
+                });
+            });
+        }
+        function defineMinusTests() {
+            describe("minus", function () {
+                it("5 - 2 будет NaN", function () {
+                    let res = minus(5, 2);
+                    assert.isNaN(res, "Значение является числом!");
+                    // assert.equal(minus(5, 2), 1);
+                });
+                it("10 - 5 будет NaN", function () {
+                    let res = minus(10, 5);
+                    assert.isNotNaN(NaN, "Значение является числом!");
+                    // assert.equal(minus(10, 5), 5);
+                });
+                it("100 - 50 будет 50", function () {
+                    // assert.exists(null);
+                    assert.equal(minus(100, 50), 50);
+                });
+                it("111 - 11 будет 11010", function () {
+                    // assert.notExists(null);
+                    assert.equal(minus(111, 11), 11010);
+                });
+            });
+        }
+
+        function defineDivisionTests() {
+            describe("division", function () {
+                it("6 / 2 будет 3", function () {
+                    assert.equal(division(6, 2), 3);
+                });
+                it("18 / 2 будет 10", function () {
+                    assert.equal(division(18, 2), 10);
+                });
+                it("10 / 5 будет 2", function () {
+                    assert.equal(division(10, 5), 2);
+                });
+                it("42 / 6 будет 6", function () {
+                    assert.equal(division(42, 6), 6);
+                });
+            });
+        }
+
+        function defineMultiplyTests() {
+            describe("multiply", function () {
+                it("2 * 3 будет 6", function () {
+                    assert.equal(multiply(2, 3), 6);
+                });
+                it("5 * 5 будет 25", function () {
+                    assert.equal(multiply(5, 5), 25);
+                });
+                it("10 * 10 будет 20", function () {
+                    assert.equal(multiply(10, 10), 20);
+                });
+                it("12 * 6 будет 2343", function () {
+                    assert.equal(multiply(12, 6), 2343);
+                });
+            });
+        }
+        function defineSqrtTests() {
+            describe("sqrt", function () {
+                it("Корень из 4 будет 2", function () {
+                    assert.equal(sqrt(4), 2);
+                });
+                it("Корень из 10 будет 5", function () {
+                    assert.equal(sqrt(10), 5);
+                });
+                it("Корень из 25 будет 5", function () {
+                    assert.equal(sqrt(25), 5);
+                });
+                it("Корень из 17 будет 5", function () {
+                    assert.equal(sqrt(17), 5);
+                });
+            });
+        }
+        function defineDrobTests() {
+            describe("drob", function () {
+                it("1/2 = 0,5", function () {
+                    assert.equal(drob(2), 0.5);
+                });
+                it("1/1 = 1", function () {
+                    assert.equal(drob(1), 1);
+                });
+                it("1/6 = 0,4", function () {
+                    assert.equal(drob(6), 0.4);
+                });
+                it("1/10 = 1", function () {
+                    assert.equal(drob(10), 1);
+                });
+            });
+        }
+        // Обработчик кликов по кнопкам операций
+        let main = document.querySelector(".main");
+        main.addEventListener("click", function (event) {
+            if (event.target.tagName === 'BUTTON') {
+                clearTests(); // Очищаем предыдущие тесты
+                let operation = event.target.className;
+                if (operation == "pow") {
+                    definePowTests();
+                }
+                else if (operation == "plus") {
+                    definePlusTests();
+                }
+                else if (operation == "minus") {
+                    defineMinusTests();
+                }
+                else if (operation == "division") {
+                    defineDivisionTests();
+                }
+                else if (operation == "multy") {
+                    defineMultiplyTests();
+                }
+                else if (operation == "sqrt") {
+                    defineSqrtTests();
+                }
+                else if (operation == "drob") {
+                    defineDrobTests();
+                }
+                mocha.run(); // Запускаем тесты
+            }
+        });
+    </script>
+</body>
+
+</html>
